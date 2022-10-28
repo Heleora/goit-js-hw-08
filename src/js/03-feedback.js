@@ -25,21 +25,15 @@ function onPageOpen() {
 
         if (previousInputValueParsed.email) {
             refs.email.value = previousInputValueParsed.email;
-
-            // formData.email = previousInputValueParsed.email;
-
-
+            formData.email = previousInputValueParsed.email;
         }
         else {
             refs.email.value = "";
         };
 
-
-        if(previousInputValueParsed.textarea) {
-            refs.textarea.value = previousInputValueParsed.textarea;
-            // formData.textarea = previousInputValueParsed.textarea;
-
-
+        if(previousInputValueParsed.message) {
+            refs.textarea.value = previousInputValueParsed.message;
+            formData.textarea = previousInputValueParsed.message;
         }
         else {
             refs.textarea.value = ""; 

@@ -4,7 +4,7 @@ import { galleryItems } from './gallery-items';
 import SimpleLightbox from "simplelightbox/dist/simple-lightbox.esm";
 import "simplelightbox/dist/simple-lightbox.min.css";
 
-console.log(galleryItems);
+// console.log(galleryItems);
 const galleryItemsMarkup = galleryItems.map(({ original, preview, description }) => {
     return `
     <a class="gallery__item" href="${original}">
