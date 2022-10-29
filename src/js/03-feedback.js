@@ -51,12 +51,10 @@ function onInputTyping(evt) {
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    try {
-        const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
+    const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
+    if (formValues) {
         console.log(JSON.parse(formValues));
-    } catch (error) {
-        console.log(error);
-    } 
+    }; 
 
     evt.currentTarget.reset();
     localStorage.removeItem(LOCALSTORAGE_KEY);
