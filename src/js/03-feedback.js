@@ -58,4 +58,20 @@ function onFormSubmit(evt) {
 
     evt.currentTarget.reset();
     localStorage.removeItem(LOCALSTORAGE_KEY);
-}
+    
+};
+
+// function onFormSubmit(evt) {
+//     evt.preventDefault();
+
+//     try {
+//     const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
+//     console.log(JSON.parse(formValues));
+//     } catch (error) {
+//         console.log(error);
+//     };
+
+//     evt.currentTarget.reset();
+//     localStorage.removeItem(LOCALSTORAGE_KEY);
+    
+// };
