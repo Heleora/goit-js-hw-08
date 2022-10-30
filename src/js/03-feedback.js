@@ -1,4 +1,5 @@
-var throttle = require('lodash.throttle');
+
+const throttle = require('lodash.throttle');
 
 const refs = {
     form: document.querySelector(".feedback-form"),
@@ -8,7 +9,7 @@ const refs = {
 
 const LOCALSTORAGE_KEY = "feedback-form-state";
 
-const formData = {};
+let formData = {};
 
 // localStorage.removeItem(LOCALSTORAGE_KEY);
 
@@ -33,7 +34,7 @@ function onPageOpen() {
 
         if(previousInputValueParsed.message) {
             refs.textarea.value = previousInputValueParsed.message;
-            formData.textarea = previousInputValueParsed.message;
+            formData.message = previousInputValueParsed.message;
         }
         else {
             refs.textarea.value = ""; 
@@ -51,27 +52,28 @@ function onInputTyping(evt) {
 function onFormSubmit(evt) {
     evt.preventDefault();
 
-    const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
-    if (formValues) {
+    try {
+        const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
         console.log(JSON.parse(formValues));
-    }; 
+    } catch (error) {
+        console.log(error);
+    } 
 
     evt.currentTarget.reset();
+    formData = {};
     localStorage.removeItem(LOCALSTORAGE_KEY);
-    
-};
-
+}
 // function onFormSubmit(evt) {
 //     evt.preventDefault();
 
-//     try {
 //     const formValues = localStorage.getItem(LOCALSTORAGE_KEY);
-//     console.log(JSON.parse(formValues));
-//     } catch (error) {
-//         console.log(error);
-//     };
+//     if (formValues) {
+//         console.log(JSON.parse(formValues));
+//     }; 
 
 //     evt.currentTarget.reset();
+//     formData = {};
 //     localStorage.removeItem(LOCALSTORAGE_KEY);
     
 // };
+
